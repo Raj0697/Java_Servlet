@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Product</title>
+<script type="text/javascript">
+
+	function chg()
+	{
+		var p=document.getElementById("pro").value;
+		
+		if(p=="Bag")
+			document.getElementById("des").value="You Selected a Bag";
+		else if(p=="Pencil Box")
+			document.getElementById("des").value="You Selected a Pencil Box";
+		else if(p=="Notes")
+			document.getElementById("des").value="You Selected a Notes";
+		else if(p=="Belt")
+			document.getElementById("des").value="You Selected a Belt";
+		else if(p=="Shoe")
+			document.getElementById("des").value="You Selected a Shoe";
+		else if(p=="Soaks")
+			document.getElementById("des").value="You Selected a Soaks";		
+	}
+	
+	function valid()
+	{
+
+		var name=document.getElementById("nam").value;
+		var age=document.getElementById("age").value;
+		var add=document.getElementById("add").value;
+		var ph=document.getElementById("phno").value;
+		
+		name=name.trim();
+		age=age.trim();
+		add=add.trim();
+		ph=ph.trim();
+				
+		if(name=="")
+		{
+				document.getElementById("a").innerHTML="Manadatory field";
+				document.getElementById("nam").focus;
+				return false;
+		}
+		else 
+		{
+				document.getElementById("a").innerHTML=" ";
+		}
+		
+		if(age=="")
+		{
+				document.getElementById("b").innerHTML="Manadatory field";
+				document.getElementById("age").focus;
+				return false;
+		}
+		else 
+		{
+				document.getElementById("b").innerHTML=" ";
+		}
+		
+		if(document.getElementById("gen1").checked==false)
+		{
+			if(document.getElementById("gen2").checked==false)
+			{	
+				document.getElementById("c").innerHTML="Manadatory field";
+				return false;
+			}
+		}
+		else
+		{
+			document.getElementById("c").innerHTML=" ";	
+		}
+		
+		if(add=="")
+		{
+			document.getElementById("d").innerHTML="Manadatory field";
+			document.getElementById("add").focus;
+			return false;
+		}
+		else 
+		{
+			document.getElementById("d").innerHTML=" ";
+		}
+		
+		if(ph=="")
+		{
+			document.getElementById("e").innerHTML="Manadatory field";
+			document.getElementById("phno").focus;
+			return false;
+		}
+		else 
+		{
+			document.getElementById("e").innerHTML=" ";
+		}
+			
+		if(document.getElementById("pro").value=="Select the Option")
+		{
+				document.getElementById("f").innerHTML="Selct the Option";
+				return false;
+		}
+		else
+		{
+			document.getElementById("f").innerHTML=" ";
+		}
+		
+	}
+</script>
+</head>
+<body>
+	<form name="frm" method="get" action="product_data"><center>
+		<h1> Customer And Product Details </h1>
+		<br>
+		<table border="0">
+			<tr><td>Name :</td><td><input type="text" name="nam" id="nam"  /></td><td><label style="color:red;" id="a"></label></td></tr>
+			<tr><td>Age :</td><td><input type="text" name="age" id="age"  /></td><td><label style="color:red;"  id="b"></label></td></tr>
+			<tr><td>Gender :</td><td><input type="radio" name="gen" id="gen1" value="Male" />Male 
+			<input type="radio" name="gen" id="gen2" value="Female" />Female</td><td><label id="c" style="color:red;" ></label></td></tr>  
+			<tr><td>Address :</td><td><textarea name="add" id="add"></textarea></td><td><label id="d" style="color:red;" ></label></td></tr>
+			<tr><td>Phone Number :</td><td><input type="text" name="phno" id="phno"/></td><td><label id="e" style="color:red;" ></label></td></tr>
+			<tr><td>Product : </td><td>
+			<select name="pro" id="pro" onchange="chg();">
+				<option value="Select the Option">Select the Option</option>
+				<option value="Bag">Bags</option>
+				<option value="Pencil box">Pencil Box</option>
+				<option value="Notes">Notes</option>
+				<option value="Belt">Belt</option>
+				<option value="Shoe">Shoe</option>
+				<option value="Soaks">Soaks</option>
+			</select></td><td><label id="f"  style="color:red;"></label>
+			</td></tr>
+			
+			<tr>
+			<td>Description :</td><td><textarea name="des" readonly id="des" ></textarea></td><td><label id="g"></label></td>
+			</tr><tr><td>&ensp;</td></tr>
+			<tr><td colspan="2" align="center">
+			<input type="submit" value="Process" name="sub" onclick="return valid();" />
+			<input type="reset" value="Clear" name="res" />
+			</td></tr>
+			
+		</table></center></form>
+</body>
+</html>
